@@ -3,7 +3,6 @@ package technobel.bart.laboschool.models.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.util.Collection;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
@@ -26,5 +25,11 @@ public class Classroom {
 
     @OneToMany(mappedBy = "classroom")
     private Set<Request> request;
+
+    @ManyToMany
+    @JoinTable(name = "classrooms_equipement",
+            joinColumns = @JoinColumn(name = "classroom_id"),
+            inverseJoinColumns = @JoinColumn(name = "equipement_id"))
+    private Set<Equipment> equipments = new LinkedHashSet<>();
 
 }

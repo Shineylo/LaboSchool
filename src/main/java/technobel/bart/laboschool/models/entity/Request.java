@@ -3,7 +3,6 @@ package technobel.bart.laboschool.models.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.LinkedHashSet;
@@ -30,5 +29,11 @@ public class Request {
     @ManyToOne
     @JoinColumn(name = "classroom_id")
     private Classroom classroom;
+
+    @ManyToMany
+    @JoinTable(name = "request_equipements",
+            joinColumns = @JoinColumn(name = "request_id"),
+            inverseJoinColumns = @JoinColumn(name = "equipement_id"))
+    private Set<Equipment> equipments = new LinkedHashSet<>();
 
 }

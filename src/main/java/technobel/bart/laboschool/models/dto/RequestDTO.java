@@ -1,14 +1,13 @@
 package technobel.bart.laboschool.models.dto;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 import lombok.Builder;
 import lombok.Data;
 import technobel.bart.laboschool.models.entity.Classroom;
+import technobel.bart.laboschool.models.entity.Equipment;
 
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.util.Set;
 
 @Data
 @Builder
@@ -24,4 +23,6 @@ public class RequestDTO {
     private String refuse;
 
     private Classroom classroom;
+
+    private Set<Equipment> equipments;
 }

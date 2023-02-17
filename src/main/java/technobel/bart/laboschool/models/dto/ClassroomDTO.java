@@ -1,11 +1,8 @@
 package technobel.bart.laboschool.models.dto;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
 import lombok.Builder;
 import lombok.Data;
+import technobel.bart.laboschool.models.entity.Equipment;
 import technobel.bart.laboschool.models.entity.Request;
 
 import java.util.Set;
@@ -22,4 +19,6 @@ public class ClassroomDTO {
     private boolean teacherOnly;
 
     private Set<Request> request;
+
+    private Set<Equipment> equipements;
 }
