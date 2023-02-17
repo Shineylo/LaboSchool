@@ -3,6 +3,10 @@ package technobel.bart.laboschool.models.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.Collection;
+import java.util.LinkedHashSet;
+import java.util.Set;
+
 @Entity
 @Setter @Getter
 public class Classroom {
@@ -19,4 +23,8 @@ public class Classroom {
 
     @Column(nullable = false)
     private boolean teacherOnly;
+
+    @OneToMany(mappedBy = "classroom")
+    private Set<Request> request;
+
 }

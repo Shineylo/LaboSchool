@@ -6,6 +6,9 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.Builder;
 import lombok.Data;
+import technobel.bart.laboschool.models.entity.Request;
+
+import java.util.Set;
 
 @Data
 @Builder
@@ -18,4 +21,5 @@ public class ClassroomDTO {
 
     private boolean teacherOnly;
 
+    private Set<Request> request;
 }

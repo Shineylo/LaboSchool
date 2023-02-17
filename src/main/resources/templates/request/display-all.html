@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Classrooms</title>
+  <th:block th:replace="~{ fragment/fragments :: base_css }"></th:block>
+</head>
+<body>
+
+<div th:replace="~{ fragment/fragments :: header }"></div>
+
+<main class="container">
+  <h1>My requests</h1>
+
+  <table class="table">
+    <thead>
+    <tr>
+      <td>id</td>
+      <td>When</td>
+      <td>Duration</td>
+      <td>Reason</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="item : ${list}" th:object="${item}">
+      <td th:text="*{id}">1</td>
+      <td th:text="*{timeSlot}">jj-mm-yyyy 00:00</td>
+      <td th:text="*{duration}">00:00</td>
+      <td th:text="*{reason}">because</td>
+    </tr>
+    </tbody>
+  </table>
+</main>
+
+
+<div th:replace="~{ fragment/fragments :: footer }"></div>
+
+</div>
+
+</body>
+</html>
