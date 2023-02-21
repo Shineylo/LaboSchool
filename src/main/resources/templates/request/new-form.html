@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr" th:replace="~{fragment/layout :: layout(~{ :: content})}">
+<html lang="fr" th:replace="~{fragment/user-layout :: layout(~{ :: content})}">
 <head>
   <meta charset="UTF-8">
   <title>Title</title>
@@ -12,21 +12,46 @@
   <form action="/request/add" method="post" th:object="${form}">
 
     <div class="mb-3">
-      <label for="in-timeslot" class="form-label">When:</label><br/>
-      <input type="datetime-local" id="in-timeslot" class="form-control" th:field="*{timeSlot}">
-      <span th:if="${#fields.hasErrors('timeSlot')}" th:errors="*{timeSlot}"></span>
+      <label for="in-role" class="form-label">Role:</label><br/>
+      <select id="in-role" th:field="*{role}">
+        <option value="Student">Student</option>
+        <option value="Teacher">Teacher</option>
+      </select>
+    </div>
+
+    <div class="mb-3">
+      <label for="in-date" class="form-label">When:</label><br/>
+      <input type="date" id="in-date" class="form-control" th:field="*{date}">
+      <span th:if="${#fields.hasErrors('date')}" th:errors="*{date}"></span>
+      <select id="in-time" th:field="*{time}">
+        <option value="8">8:00</option>
+        <option value="9">9:00</option>
+        <option value="10">10:00</option>
+        <option value="11">11:00</option>
+        <option value="12">12:00</option>
+        <option value="13">13:00</option>
+        <option value="14">14:00</option>
+        <option value="15">15:00</option>
+        <option value="16">16:00</option>
+        <option value="17">17:00</option>
+      </select>
     </div>
 
     <div class="mb-3">
       <label for="in-duration" class="form-label">Duration:</label><br/>
-      <input type="time" class="form-control" id="in-duration" th:field="*{duration}">
-      <span th:if="${#fields.hasErrors('duration')}" th:errors="*{duration}"></span>
+      <select id="in-duration" th:field="*{duration}">
+        <option value="1">One hour</option>
+        <option value="2">Two hour</option>
+        <option value="5">Half day</option>
+        <option value="10">All day</option>
+      </select>
     </div>
 
     <div class="mb-3">
       <label for="in-desc" class="form-label">Reason:</label><br/>
       <textarea id="in-desc" class="form-control" cols="30" rows="10" th:field="*{reason}"></textarea>
     </div>
+
 
 
     <button type="submit">envoyer</button>

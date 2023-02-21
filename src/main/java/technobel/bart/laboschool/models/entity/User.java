@@ -24,11 +24,11 @@ public class User {
     private String Adresse;
     private Role role;
 
-    @OneToMany(orphanRemoval = true)
+    @OneToMany(orphanRemoval = true, mappedBy = "users")
     @JoinColumn(name = "user_id")
     private Set<Request> requests = new LinkedHashSet<>();
 
-    @OneToMany(cascade = CascadeType.MERGE, orphanRemoval = true)
+    @OneToMany(cascade = CascadeType.MERGE, orphanRemoval = true, mappedBy = "validator")
     @JoinColumn(name = "user_id")
     private Set<Request> validate = new LinkedHashSet<>();
 

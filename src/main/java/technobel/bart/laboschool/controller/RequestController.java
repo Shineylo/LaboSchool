@@ -24,7 +24,7 @@ public class RequestController {
     @GetMapping("/all")
     public String getAll(Model model){
         model.addAttribute("list", requestService.getAll());
-        return "request/display-all";
+        return "display-waiting";
     }
 
     //GET - /request/add

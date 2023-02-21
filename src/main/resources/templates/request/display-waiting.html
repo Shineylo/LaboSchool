@@ -3,19 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <title>Classrooms</title>
-  <th:block th:replace="~{ fragment/fragments :: base_css }"></th:block>
+  <th:block th:replace="~{ fragment/user-fragments :: base_css }"></th:block>
 </head>
 <body>
 
-<div th:replace="~{ fragment/fragments :: header }"></div>
+<div th:replace="~{ fragment/admin-fragments :: header }"></div>
 
 <main class="container">
-  <h1>My requests</h1>
+  <h1>Request waiting</h1>
 
   <table class="table">
     <thead>
     <tr>
-      <td>id</td>
       <td>When</td>
       <td>Duration</td>
       <td>Reason</td>
@@ -23,17 +22,19 @@
     </thead>
     <tbody>
     <tr th:each="item : ${list}" th:object="${item}">
-      <td th:text="*{id}">1</td>
       <td th:text="*{timeSlot}">jj-mm-yyyy 00:00</td>
       <td th:text="*{duration}">00:00</td>
       <td th:text="*{reason}">because</td>
+      <td >
+        <button class="btn btn-success">view</button>
+      </td>
     </tr>
     </tbody>
   </table>
 </main>
 
 
-<div th:replace="~{ fragment/fragments :: footer }"></div>
+<div th:replace="~{ fragment/admin-fragments :: footer }"></div>
 
 </div>
 

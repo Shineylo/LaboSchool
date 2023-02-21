@@ -5,6 +5,9 @@ import technobel.bart.laboschool.models.dto.RequestDTO;
 import technobel.bart.laboschool.models.entity.Request;
 import technobel.bart.laboschool.models.form.request.RequestNewForm;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
+
 @Service
 public class RequestMapper {
 
@@ -28,8 +31,9 @@ public class RequestMapper {
 
         Request request = new Request();
 
-        request.setTimeSlot(form.getTimeSlot());
-        request.setDuration(form.getDuration());
+
+        request.setTimeSlot(form.getDate().atTime(LocalTime.of(form.getTime(), 00)));
+        request.setDuration(LocalTime.of(form.getDuration(),00));
         request.setReason(form.getReason());
 
         return request;

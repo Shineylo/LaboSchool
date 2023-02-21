@@ -36,4 +36,11 @@ public class Request {
             inverseJoinColumns = @JoinColumn(name = "equipement_id"))
     private Set<Equipment> equipments = new LinkedHashSet<>();
 
+    @ManyToOne(optional = false)
+    private User users;
+
+
+    @ManyToOne(optional = false)
+    private User validator;
+
 }

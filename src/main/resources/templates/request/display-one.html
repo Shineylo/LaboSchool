@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Classrooms</title>
+  <th:block th:replace="~{ fragment/user-fragments :: base_css }"></th:block>
+</head>
+<body>
+
+<th:block th:fragment="content" th:object="${request}">
+
+<div th:replace="~{ fragment/admin-fragments :: header }"></div>
+
+  <h1>Moderating</h1>
+
+    <div class="card-body">
+      <p>
+        <span class="field-title">id: </span>
+        <span class="field-value" th:text="*{id}"></span>
+      </p>
+      <p>
+        <span class="field-title">name: </span>
+        <span class="field-value" th:text="*{name}"></span>
+      </p>
+      <p>
+        <span class="field-title">id: </span>
+        <span class="field-value" th:text="*{price}"></span>
+      </p>
+      <p>
+        <span class="field-title">name: </span>
+        <span class="field-value" th:text="*{description}"></span>
+      </p>
+      <p>
+        <button class="btn btn-success">accept</button>
+        <button class="btn btn-refuse">refuse</button>
+      </p>
+    </div>
+</th:block>
+
+
+</body>
+</html>
