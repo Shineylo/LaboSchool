@@ -5,6 +5,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import technobel.bart.laboschool.service.ClassroomService;
+import technobel.bart.laboschool.service.EquipmentService;
 
 @Controller
 @RequestMapping("/classroom")
@@ -12,7 +13,8 @@ public class ClassroomController {
     private final ClassroomService classroomService;
 
 
-    public ClassroomController(ClassroomService classroomService) {
+
+    public ClassroomController(ClassroomService classroomService, EquipmentService equipmentService) {
         this.classroomService = classroomService;
     }
 

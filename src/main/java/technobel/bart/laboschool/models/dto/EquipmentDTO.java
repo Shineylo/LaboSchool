@@ -17,7 +17,7 @@ public class EquipmentDTO {
 
     private String name;
 
-    private Set<Classroom> classrooms;
+    private Set<ClassroomDTO> classrooms;
 
-    private Set<Request> requests;
+    private Set<RequestDTO> requests;
 }

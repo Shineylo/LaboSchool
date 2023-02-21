@@ -18,7 +18,7 @@ public class ClassroomDTO {
 
     private boolean teacherOnly;
 
-    private Set<Request> request;
+    private Set<RequestDTO> request;
 
-    private Set<Equipment> equipements;
+    private Set<EquipmentDTO> equipments;
 }

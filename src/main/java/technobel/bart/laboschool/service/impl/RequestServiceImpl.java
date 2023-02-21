@@ -5,20 +5,24 @@ import technobel.bart.laboschool.exception.NotFoundException;
 import technobel.bart.laboschool.models.dto.RequestDTO;
 import technobel.bart.laboschool.models.entity.Request;
 import technobel.bart.laboschool.models.form.request.RequestNewForm;
+import technobel.bart.laboschool.repository.EquipmentRepository;
 import technobel.bart.laboschool.repository.RequestRepository;
 import technobel.bart.laboschool.service.RequestService;
 import technobel.bart.laboschool.service.mapper.RequestMapper;
 
+import java.util.HashSet;
 import java.util.List;
 
 @Service
 public class RequestServiceImpl implements RequestService {
 
     private final RequestRepository requestRepository;
+    private final EquipmentRepository equipmentRepository;
     private final RequestMapper mapper;
 
-    public RequestServiceImpl(RequestRepository requestRepository, RequestMapper mapper) {
+    public RequestServiceImpl(RequestRepository requestRepository, EquipmentRepository equipmentRepository, RequestMapper mapper) {
         this.requestRepository = requestRepository;
+        this.equipmentRepository = equipmentRepository;
         this.mapper = mapper;
     }
 
@@ -42,6 +46,9 @@ public class RequestServiceImpl implements RequestService {
             throw new IllegalArgumentException("form should not be null");
 
         Request entity = mapper.toEntity(form);
+        entity.setEquipments(
+                new HashSet<>(equipmentRepository.findAllById(form.getEquipmentsId()))
+        );
         requestRepository.save( entity );
     }
 }

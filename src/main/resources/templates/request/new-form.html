@@ -11,13 +11,7 @@
 
   <form action="/request/add" method="post" th:object="${form}">
 
-    <div class="mb-3">
-      <label for="in-role" class="form-label">Role:</label><br/>
-      <select id="in-role" th:field="*{role}">
-        <option value="Student">Student</option>
-        <option value="Teacher">Teacher</option>
-      </select>
-    </div>
+
 
     <div class="mb-3">
       <label for="in-date" class="form-label">When:</label><br/>
@@ -44,6 +38,16 @@
         <option value="2">Two hour</option>
         <option value="5">Half day</option>
         <option value="10">All day</option>
+      </select>
+    </div>
+
+    <div class="mb-3">
+      <label for="in-ing" class="form-label">ingredients:</label><br/>
+      <select id="in-ing" class="form-control" th:field="*{equipmentsId}" multiple="multiple">
+        <option th:each="equ : ${equipments}"
+                th:text="${equ.name}"
+                th:value="${equ.id}">
+        </option>
       </select>
     </div>
 

@@ -5,23 +5,34 @@ import technobel.bart.laboschool.models.dto.RequestDTO;
 import technobel.bart.laboschool.models.entity.Request;
 import technobel.bart.laboschool.models.form.request.RequestNewForm;
 
-import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.HashSet;
+import java.util.stream.Collectors;
 
 @Service
 public class RequestMapper {
+    private final EquipmentMapper equipmentMapper;
 
-    public RequestDTO toDto(Request request){
-        if( request == null )
+    public RequestMapper(EquipmentMapper equipmentMapper) {
+        this.equipmentMapper = equipmentMapper;
+    }
+
+    public RequestDTO toDto(Request entity){
+        if( entity == null )
             return null;
 
         return RequestDTO.builder()
-                .id(request.getId())
-                .timeSlot(request.getTimeSlot())
-                .duration(request.getDuration())
-                .reason(request.getReason())
-                .refuse(request.getRefuse())
-                .classroom(request.getClassroom())
+                .id(entity.getId())
+                .timeSlot(entity.getTimeSlot())
+                .duration(entity.getDuration())
+                .reason(entity.getReason())
+                .refuse(entity.getRefuse())
+                .classroom(entity.getClassroom())
+                .equipments(
+                        entity.getEquipments().stream()
+                                .map(equipmentMapper::toDto)
+                                .collect(Collectors.toSet())
+                )
                 .build();
     }
 

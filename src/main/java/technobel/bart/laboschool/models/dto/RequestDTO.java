@@ -4,6 +4,7 @@ import lombok.Builder;
 import lombok.Data;
 import technobel.bart.laboschool.models.entity.Classroom;
 import technobel.bart.laboschool.models.entity.Equipment;
+import technobel.bart.laboschool.models.entity.User;
 
 import java.time.LocalDateTime;
 import java.time.LocalTime;
@@ -24,5 +25,9 @@ public class RequestDTO {
 
     private Classroom classroom;
 
-    private Set<Equipment> equipments;
+    private Set<EquipmentDTO> equipments;
+
+    private User user;
+
+    private User validator;
 }

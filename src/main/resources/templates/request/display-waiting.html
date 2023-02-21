@@ -15,16 +15,15 @@
   <table class="table">
     <thead>
     <tr>
+      <td>Id</td>
       <td>When</td>
-      <td>Duration</td>
-      <td>Reason</td>
+      <td>Manage</td>
     </tr>
     </thead>
     <tbody>
     <tr th:each="item : ${list}" th:object="${item}">
-      <td th:text="*{timeSlot}">jj-mm-yyyy 00:00</td>
-      <td th:text="*{duration}">00:00</td>
-      <td th:text="*{reason}">because</td>
+      <td th:text="*{id}">00:00</td>
+      <td th:text="*{#temporals.format(timeSlot, 'dd-MM-yyyy HH:mm')}">jj-mm-yyyy 00:00</td>
       <td >
         <button class="btn btn-success">view</button>
       </td>
